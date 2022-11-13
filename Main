@@ -1,0 +1,38 @@
+using System;
+
+namespace ProgrammeringUppgift3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Instantiates Random class
+            Random rnd = new Random();
+
+            // Instantiates 3 new birds
+            int maxBirds = 3;
+            Bird[] birds = new Bird[maxBirds];
+
+            // Array of names that will be used for the birds
+            string[] arrOfNames = new string[] { "Chica", "Cherry", "Ari" };
+
+            // Creates 3 birds with random values for each variable
+            for (int i = 0; i < maxBirds; i++)
+            {
+                birds[i] = new Bird();
+                birds[i].setHeight(rnd.Next(5, 40));
+                birds[i].setWeight(rnd.Next(1, 5));
+                birds[i].setName(arrOfNames[i]);
+            }
+
+            // Prints all values
+            for (int i = 0; i < maxBirds; i++)
+            {
+                Console.WriteLine("Name: " + birds[i].getName());
+                Console.WriteLine("Height: " + birds[i].getHeight() + "cm");
+                Console.WriteLine("Weight: " + birds[i].getWeight() + "kg" + "\n");
+                Console.WriteLine(birds[i].sing() + "\n" + "------------" + "\n");
+            }
+        }
+    }
+}
